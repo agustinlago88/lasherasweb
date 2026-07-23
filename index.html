@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cerrajería Las Heras del Automotor | Bernal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:#F2F1EE; color:#1E2126; font-family:'IBM Plex Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  a { color:#B4530C; text-decoration:none; }
+  a:hover { color:#8F3F08; }
+  ::selection { background:#E8890C; color:#fff; }
+  @keyframes blip { 0%,100%{ opacity:1; } 50%{ opacity:.25; } }
+
+  /* Responsive layout utility classes */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 44px;
+    align-items: center;
+  }
+  .location-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    border: 1px solid rgba(232,137,12,.24);
+    border-radius: 26px;
+    background: #fff;
+    box-shadow: 0 20px 44px rgba(30,33,38,.08);
+  }
+  .location-info {
+    padding: 52px 48px;
+    border-top-left-radius: 26px;
+    border-bottom-left-radius: 26px;
+    overflow: hidden;
+  }
+  .location-map {
+    position: relative;
+    min-height: 420px;
+    border-left: 1px solid rgba(30,33,38,.07);
+    border-top-right-radius: 26px;
+    border-bottom-right-radius: 26px;
+    overflow: hidden;
+  }
+  .hero-badge-floating {
+    position: absolute;
+    bottom: -18px;
+    left: -18px;
+    background: #fff;
+    border: 1px solid rgba(232,137,12,.3);
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    box-shadow: 0 16px 34px rgba(30,33,38,.14);
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .cta-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 38px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 26px;
+    border-radius: 13px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .location-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+  .stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+  }
+
+  /* Mobile floating contact bar */
+  .mobile-contact-bar {
+    display: none;
+  }
+
+  /* Mobile Media Queries */
+  @media (max-width: 900px) {
+    .header-container {
+      padding: 10px 16px !important;
+    }
+    .header-nav-links {
+      display: none !important;
+    }
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .showcase-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .location-card {
+      grid-template-columns: 1fr;
+    }
+    .location-info {
+      padding: 28px 20px;
+      border-radius: 26px 26px 0 0;
+    }
+    .location-map {
+      min-height: 320px;
+      border-left: none;
+      border-top: 1px solid rgba(30,33,38,.07);
+      border-radius: 0 0 26px 26px;
+    }
+    .hero-badge-floating {
+      bottom: 12px;
+      left: 12px;
+      padding: 12px 16px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    body {
+      padding-bottom: 70px;
+    }
+    .hero-section {
+      padding-top: 44px !important;
+      padding-bottom: 44px !important;
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
+    .section-padding {
+      padding-top: 48px !important;
+      padding-bottom: 48px !important;
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
+    .cta-button-group {
+      flex-direction: column;
+      width: 100%;
+    }
+    .cta-btn {
+      width: 100%;
+    }
+    .location-btn-group {
+      flex-direction: column;
+      width: 100%;
+    }
+    .location-btn-group a {
+      width: 100%;
+      justify-content: center;
+    }
+    .stats-container {
+      gap: 16px !important;
+      justify-content: space-between;
+    }
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      gap: 16px;
+    }
+    .footer-brand {
+      flex-direction: column;
+      text-align: center;
+    }
+    .mobile-contact-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(30, 33, 38, 0.12);
+      padding: 10px 16px;
+      display: flex;
+      gap: 10px;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    }
+    .mobile-contact-bar a {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 14.5px;
+      text-align: center;
+    }
+    .mobile-contact-bar .btn-wa {
+      background: #E8890C;
+      color: #fff;
+    }
+    .mobile-contact-bar .btn-tel {
+      background: #1E2126;
+      color: #fff;
+    }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Locksmith",
+  "name":"Cerrajería Las Heras del Automotor",
+  "image":"https://www.instagram.com/lasherascerrajeria/",
+  "description":"Duplicado de llaves codificadas de automóvil, reparación de levantacristales y cierres centralizados. Todas las marcas. +35 años de experiencia en Bernal.",
+  "url":"https://www.instagram.com/lasherascerrajeria/",
+  "telephone":"+5491173655126",
+  "priceRange":"$$",
+  "areaServed":"Bernal, Quilmes, Zona Sur GBA",
+  "address":{ "@type":"PostalAddress","streetAddress":"Lebensohn 11, esquina Las Heras","addressLocality":"Bernal","addressRegion":"Buenos Aires","addressCountry":"AR" },
+  "geo":{ "@type":"GeoCoordinates","latitude":"-34.7076","longitude":"-58.2814" },
+  "openingHoursSpecification":[{ "@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"14:00" }],
+  "sameAs":["https://www.instagram.com/lasherascerrajeria/"],
+  "makesOffer":[
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Duplicado de llaves codificadas de automóvil"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Reparación de levantacristales"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Reparación de cierres centralizados"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Mandos a distancia: cambio de carcasa y botones"}}
+  ]
+}
+</script>
+</helmet>
+
+<div style="max-width:100%;overflow:hidden;position:relative;">
+
+<!-- ===== NAV ===== -->
+<header style="position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(242,241,238,.85);border-bottom:1px solid rgba(30,33,38,.09);">
+  <div class="header-container" style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+    <a href="#top" style="display:flex;align-items:center;">
+      <img src="logo-lasheras.png" alt="Cerrajería Las Heras del Automotor" style="height:46px;width:auto;display:block;">
+    </a>
+    <nav style="display:flex;align-items:center;gap:24px;">
+      <a href="#servicios" class="header-nav-links" style="color:#4A5058;font-size:14.5px;font-weight:500;" style-hover="color:#1E2126">Servicios</a>
+      <a href="#ubicacion" class="header-nav-links" style="color:#4A5058;font-size:14.5px;font-weight:500;" style-hover="color:#1E2126">Ubicación</a>
+      <a href="{{ waLink }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;background:#E8890C;color:#fff;font-weight:600;font-size:14.5px;padding:10px 18px;border-radius:11px;box-shadow:0 6px 16px rgba(232,137,12,.28);" style-hover="background:#CE7808">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.42.06-.64.31-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.65.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<!-- ===== HERO ===== -->
+<section class="hero-section" style="position:relative;padding:84px 24px 76px;overflow:hidden;background:linear-gradient(180deg,#FFFFFF,#F2F1EE);">
+  <div style="position:absolute;inset:0;background:radial-gradient(680px 460px at 84% 4%,rgba(232,137,12,.12),transparent 62%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(30,33,38,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(30,33,38,.04) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(circle at 60% 25%,#000,transparent 78%);pointer-events:none;"></div>
+
+  <div class="hero-grid" style="position:relative;max-width:1200px;margin:0 auto;">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid rgba(232,137,12,.35);border-radius:999px;background:rgba(232,137,12,.08);font-family:'JetBrains Mono';font-size:12px;letter-spacing:.09em;color:#B4530C;text-transform:uppercase;margin-bottom:26px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:#E8890C;animation:blip 1.6s infinite;"></span>
+        Programación electrónica de llaves
+      </div>
+      <h1 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(32px,5vw,64px);line-height:1.03;letter-spacing:-.03em;margin-bottom:22px;text-wrap:balance;color:#181B1F;">
+        Duplicado de <span style="color:#C0392B;">llaves codificadas</span> para tu auto
+      </h1>
+      <p style="max-width:520px;font-size:clamp(15px,2vw,19px);line-height:1.6;color:#4A5058;margin-bottom:34px;text-wrap:pretty;">
+        Especialistas en <strong style="color:#1E2126;font-weight:600;">reparación de levantacristales</strong> y <strong style="color:#1E2126;font-weight:600;">cierres centralizados</strong>. Diagnóstico, programación y entrega el mismo día. Todas las marcas.
+      </p>
+      <div class="cta-button-group">
+        <a href="{{ waLink }}" target="_blank" rel="noopener" class="cta-btn" style="background:#E8890C;color:#fff;box-shadow:0 10px 26px rgba(232,137,12,.3);" style-hover="background:#CE7808">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.42.06-.64.31-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.65.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          Pedí tu presupuesto
+        </a>
+        <a href="{{ telLink }}" class="cta-btn" style="background:#fff;color:#1E2126;border:1px solid rgba(30,33,38,.14);" style-hover="border-color:rgba(232,137,12,.55)">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#E8890C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          {{ phoneDisplay }}
+        </a>
+      </div>
+      <div class="stats-container">
+        <div><div style="font-family:'Space Grotesk';font-weight:700;font-size:26px;color:#B4530C;">+35</div><div style="font-size:13px;color:#6A717A;margin-top:2px;">años de experiencia</div></div>
+        <div><div style="font-family:'Space Grotesk';font-weight:700;font-size:26px;color:#B4530C;">Todas</div><div style="font-size:13px;color:#6A717A;margin-top:2px;">las marcas del país</div></div>
+        <div><div style="font-family:'Space Grotesk';font-weight:700;font-size:26px;color:#B4530C;">Mismo día</div><div style="font-size:13px;color:#6A717A;margin-top:2px;">codificación en el acto</div></div>
+      </div>
+    </div>
+
+    <div style="position:relative;">
+      <div style="position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(30,33,38,.1);box-shadow:0 30px 60px rgba(30,33,38,.16);aspect-ratio:4/5;">
+        <image-slot id="hero" shape="rect" fit="cover" placeholder="Foto del local o de una llave codificada"></image-slot>
+      </div>
+      <div class="hero-badge-floating">
+        <span style="width:40px;height:40px;border-radius:11px;background:rgba(232,137,12,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8890C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </span>
+        <div style="font-family:'Space Grotesk';font-weight:600;font-size:14.5px;color:#1E2126;">Codificamos en el acto</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="servicios" class="section-padding" style="padding:78px 24px;position:relative;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="max-width:680px;margin-bottom:46px;">
+      <div style="font-family:'JetBrains Mono';font-size:12px;letter-spacing:.16em;color:#B4530C;text-transform:uppercase;margin-bottom:13px;">// Nuestros servicios</div>
+      <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(28px,4vw,46px);line-height:1.08;letter-spacing:-.02em;margin-bottom:14px;color:#181B1F;">Tecnología y oficio para tu vehículo</h2>
+      <p style="font-size:16px;line-height:1.6;color:#5A616B;">También hacemos copias de llaves y mandos a distancia: cambio de carcasa y botones.</p>
+    </div>
+
+    <div class="services-grid">
+      <div style="padding:22px;border:1px solid rgba(232,137,12,.3);border-radius:22px;background:#fff;box-shadow:0 12px 30px rgba(30,33,38,.06);">
+        <div style="border-radius:14px;overflow:hidden;aspect-ratio:16/10;margin-bottom:22px;border:1px solid rgba(30,33,38,.08);"><image-slot id="s1" shape="rect" placeholder="Foto: llave codificada / equipo"></image-slot></div>
+        <div style="padding:0 8px 8px;">
+          <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:21px;margin-bottom:12px;letter-spacing:-.01em;color:#181B1F;">Llaves codificadas de automóvil</h3>
+          <p style="font-size:14.5px;line-height:1.6;color:#5A616B;">Duplicado y programación de llaves con chip transponder, controles y llaves de proximidad. Codificamos en el acto para todas las marcas que circulan en Argentina.</p>
+        </div>
+      </div>
+
+      <div style="padding:22px;border:1px solid rgba(30,33,38,.09);border-radius:22px;background:#fff;box-shadow:0 12px 30px rgba(30,33,38,.06);">
+        <div style="border-radius:14px;overflow:hidden;aspect-ratio:16/10;margin-bottom:22px;border:1px solid rgba(30,33,38,.08);"><image-slot id="s2" shape="rect" placeholder="Foto: levantacristales / ventanilla"></image-slot></div>
+        <div style="padding:0 8px 8px;">
+          <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:21px;margin-bottom:12px;letter-spacing:-.01em;color:#181B1F;">Reparación de levantacristales</h3>
+          <p style="font-size:14.5px;line-height:1.6;color:#5A616B;">¿El vidrio no sube o quedó trabado? Reparamos motores, mecanismos y elevadores eléctricos y manuales para dejar tus ventanillas como nuevas.</p>
+        </div>
+      </div>
+
+      <div style="padding:22px;border:1px solid rgba(30,33,38,.09);border-radius:22px;background:#fff;box-shadow:0 12px 30px rgba(30,33,38,.06);">
+        <div style="border-radius:14px;overflow:hidden;aspect-ratio:16/10;margin-bottom:22px;border:1px solid rgba(30,33,38,.08);"><image-slot id="s3" shape="rect" placeholder="Foto: cierre centralizado / mando"></image-slot></div>
+        <div style="padding:0 8px 8px;">
+          <h3 style="font-family:'Space Grotesk';font-weight:600;font-size:21px;margin-bottom:12px;letter-spacing:-.01em;color:#181B1F;">Cierres centralizados</h3>
+          <p style="font-size:14.5px;line-height:1.6;color:#5A616B;">Diagnóstico y reparación de cierres centralizados, actuadores y mandos a distancia. Recuperá el control remoto de todas las puertas de tu auto.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHOWCASE / GALLERY ===== -->
+<section class="section-padding" style="padding:78px 24px;background:#fff;border-top:1px solid rgba(30,33,38,.07);border-bottom:1px solid rgba(30,33,38,.07);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="showcase-grid">
+      <div>
+        <div style="font-family:'JetBrains Mono';font-size:12px;letter-spacing:.16em;color:#B4530C;text-transform:uppercase;margin-bottom:13px;">// El taller</div>
+        <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(26px,3.6vw,42px);line-height:1.1;letter-spacing:-.02em;margin-bottom:20px;color:#181B1F;">35 años en el mismo barrio, siempre actualizándonos</h2>
+        <p style="font-size:15.5px;line-height:1.65;color:#5A616B;margin-bottom:20px;text-wrap:pretty;">Sumamos equipos de programación electrónica de última generación al oficio de toda la vida. Por eso resolvemos desde una llave de casa hasta la codificación del inmovilizador de un 0km.</p>
+        <ul style="display:flex;flex-direction:column;gap:12px;list-style:none;">
+          <li style="display:flex;align-items:center;gap:11px;font-size:15px;color:#3A4048;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8890C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Equipamiento profesional de codificación</li>
+          <li style="display:flex;align-items:center;gap:11px;font-size:15px;color:#3A4048;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8890C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Presupuesto sin cargo y en el momento</li>
+          <li style="display:flex;align-items:center;gap:11px;font-size:15px;color:#3A4048;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8890C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Atención personalizada del dueño</li>
+        </ul>
+      </div>
+      <div style="border-radius:18px;overflow:hidden;border:1px solid rgba(30,33,38,.1);min-height:280px;aspect-ratio:16/10;"><image-slot id="g1" shape="rect" placeholder="Foto de la fachada / vitrina"></image-slot></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOCATION / CTA ===== -->
+<section id="ubicacion" class="section-padding" style="padding:78px 24px;">
+  <div class="location-card" style="max-width:1200px;margin:0 auto;">
+    <div class="location-info">
+      <div style="font-family:'JetBrains Mono';font-size:12px;letter-spacing:.16em;color:#B4530C;text-transform:uppercase;margin-bottom:13px;">// Dónde estamos</div>
+      <h2 style="font-family:'Space Grotesk';font-weight:700;font-size:clamp(26px,3.6vw,40px);line-height:1.1;letter-spacing:-.02em;margin-bottom:28px;color:#181B1F;">Acercate o escribinos por WhatsApp</h2>
+      <div style="display:flex;flex-direction:column;gap:22px;margin-bottom:34px;">
+        <div style="display:flex;gap:15px;align-items:flex-start;">
+          <span style="width:44px;height:44px;border-radius:11px;background:rgba(232,137,12,.13);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8890C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#1E2126;">Lebensohn 11, esq. Las Heras</div><div style="font-size:14px;color:#6A717A;margin-top:3px;">Bernal, Buenos Aires</div></div>
+        </div>
+        <div style="display:flex;gap:15px;align-items:flex-start;">
+          <span style="width:44px;height:44px;border-radius:11px;background:rgba(232,137,12,.13);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8890C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#1E2126;">Lunes a viernes · 8 a 14 hs</div><div style="font-size:14px;color:#6A717A;margin-top:3px;">Consultá disponibilidad por WhatsApp</div></div>
+        </div>
+        <div style="display:flex;gap:15px;align-items:flex-start;">
+          <span style="width:44px;height:44px;border-radius:11px;background:rgba(232,137,12,.13);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8890C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+          <div><div style="font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#1E2126;">{{ phoneDisplay }}</div><div style="font-size:14px;color:#6A717A;margin-top:3px;">Llamadas y WhatsApp</div></div>
+        </div>
+      </div>
+      <div class="location-btn-group">
+        <a href="{{ waLink }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#E8890C;color:#fff;font-weight:600;font-size:15.5px;padding:14px 24px;border-radius:12px;" style-hover="background:#CE7808">Escribir por WhatsApp</a>
+        <a href="{{ mapsLink }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#1E2126;font-weight:600;font-size:15.5px;padding:14px 24px;border-radius:12px;border:1px solid rgba(30,33,38,.14);" style-hover="border-color:rgba(232,137,12,.55)">Cómo llegar</a>
+        <a href="https://www.instagram.com/lasherascerrajeria/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;background:#fff;color:#1E2126;font-weight:600;font-size:15.5px;padding:14px 24px;border-radius:12px;border:1px solid rgba(30,33,38,.14);" style-hover="border-color:rgba(232,137,12,.55)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      </div>
+    </div>
+    <div class="location-map">
+      <iframe title="Mapa Cerrajería Las Heras" src="https://www.google.com/maps?q=Lebensohn%2011%20esquina%20Las%20Heras%2C%20Bernal&output=embed" style="position:absolute;inset:0;width:100%;height:100%;border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="padding:44px 24px;border-top:1px solid rgba(30,33,38,.08);background:#EDECE8;">
+  <div class="footer-container" style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;">
+    <div class="footer-brand" style="display:flex;align-items:center;gap:16px;">
+      <img src="logo-lasheras.png" alt="Cerrajería Las Heras del Automotor" style="height:44px;width:auto;display:block;">
+      <div style="font-size:12.5px;color:#6A717A;max-width:340px;">Bernal · Duplicado de llaves codificadas · Levantacristales · Cierres centralizados</div>
+    </div>
+    <div style="font-size:12.5px;color:#6A717A;">© {{ year }} · Lebensohn 11, esq. Las Heras, Bernal</div>
+  </div>
+</footer>
+
+<!-- ===== FLOATING MOBILE BAR ===== -->
+<div class="mobile-contact-bar">
+  <a href="{{ waLink }}" target="_blank" rel="noopener" class="btn-wa">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.42.06-.64.31-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.65.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+    WhatsApp
+  </a>
+  <a href="{{ telLink }}" class="btn-tel">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+    Llamar
+  </a>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const phone = "5491173655126";
+    const msg = encodeURIComponent("Hola! Quería consultar por el duplicado de llave codificada de mi auto.");
+    return {
+      waLink: `https://wa.me/${phone}?text=${msg}`,
+      telLink: `tel:+${phone}`,
+      mapsLink: "https://www.google.com/maps/search/?api=1&query=Lebensohn+11+Las+Heras+Bernal",
+      phoneDisplay: "+54 9 11 7365-5126",
+      year: new Date().getFullYear()
+    };
+  }
+}
+</script>
+</body>
+</html>
